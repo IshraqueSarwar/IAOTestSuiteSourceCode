@@ -36,6 +36,15 @@ class Setup(customtkinter.CTk):
     "Physics2":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Physics_unit_4.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Physics_unit_5.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Physics_unit_6.pickle.zip"],
     "Chemistry1": ["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_1.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_2.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_3.pickle.zip"],
     "Chemistry2": ["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_4.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_5.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Chemistry_unit_6.pickle.zip"],
+    "Biology1": ["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_1.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_2.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_3.pickle.zip"],
+    "Biology2": ["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_4.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_5.pickle.zip","https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Biology_unit_6.pickle.zip"],
+    "P1":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/P1.pickle.zip"],
+    "P2":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/P2.pickle.zip"],
+    "P3":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/P3.pickle.zip"],
+    "P4":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/P4.pickle.zip"],
+    "FP1":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Fp1.pickle.zip"],
+    "FP2":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Fp2.pickle.zip"],
+    "FP3":["https://github.com/IshraqueSarwar/question_datafiles/raw/main/IAL/Fp3.pickle.zip"],
     }
 
 
@@ -133,14 +142,14 @@ class Setup(customtkinter.CTk):
             self.chem2.select()
             self.chem2.configure(state = tkinter.DISABLED)
 
-        self.bio1 = customtkinter.CTkCheckBox(master = self,text = "Biology unit-(1-3)",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.bio1 = customtkinter.CTkCheckBox(master = self,text = "Biology unit-(1-3)",text_font = Setup.text_font_size, height = 20,width = 20, command = self.bio1_func)
         self.bio1.grid(row = 6, column = 4,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/Biology_unit_1.pickle") and os.path.exists("question_datafiles/IAL/Biology_unit_2.pickle") and os.path.exists("question_datafiles/IAL/Biology_unit_3.pickle"):
             self.bio1.select()
             self.bio1.configure(state = tkinter.DISABLED)
 
 
-        self.bio2 = customtkinter.CTkCheckBox(master = self,text = "Biology unit-(4-6)",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.bio2 = customtkinter.CTkCheckBox(master = self,text = "Biology unit-(4-6)",text_font = Setup.text_font_size, height = 20,width = 20, command = self.bio2_func)
         self.bio2.grid(row = 7, column = 4,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/Biology_unit_4.pickle") and os.path.exists("question_datafiles/IAL/Biology_unit_5.pickle") and os.path.exists("question_datafiles/IAL/Biology_unit_6.pickle"):
             self.bio2.select()
@@ -148,45 +157,45 @@ class Setup(customtkinter.CTk):
 
 
 
-        self.p1 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-1",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.p1 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-1",text_font = Setup.text_font_size, height = 20,width = 20, command = self.p1_func)
         self.p1.grid(row = 2, column = 3, padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/P1.pickle"):
             self.p1.select()
             self.p1.configure(state = tkinter.DISABLED)
 
 
-        self.p2 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-2",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.p2 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-2",text_font = Setup.text_font_size, height = 20,width = 20, command = self.p2_func)
         self.p2.grid(row = 3, column = 3,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/P2.pickle"):
             self.p2.select()
             self.p2.configure(state = tkinter.DISABLED)
 
-        self.p3 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-3",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.p3 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-3",text_font = Setup.text_font_size, height = 20,width = 20, command = self.p3_func)
         self.p3.grid(row = 4, column = 3,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/P3.pickle"):
             self.p3.select()
             self.p3.configure(state = tkinter.DISABLED)
 
-        self.p4 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-4",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.p4 = customtkinter.CTkCheckBox(master = self,text = "PureMaths unit-4",text_font = Setup.text_font_size, height = 20,width = 20, command = self.p4_func)
         self.p4.grid(row = 5, column = 3,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/P4.pickle"):
             self.p4.select()
             self.p4.configure(state = tkinter.DISABLED)
 
-        self.fp1 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-1",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.fp1 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-1",text_font = Setup.text_font_size, height = 20,width = 20, command = self.fp1_func)
         self.fp1.grid(row = 6, column = 3, padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/Fp1.pickle"):
             self.fp1.select()
             self.fp1.configure(state = tkinter.DISABLED)
 
 
-        self.fp2 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-2",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.fp2 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-2",text_font = Setup.text_font_size, height = 20,width = 20, command = self.fp2_func)
         self.fp2.grid(row = 7, column = 3,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/Fp2.pickle"):
             self.fp2.select()
             self.fp2.configure(state = tkinter.DISABLED)
 
-        self.fp3 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-3",text_font = Setup.text_font_size, height = 20,width = 20)
+        self.fp3 = customtkinter.CTkCheckBox(master = self,text = "F.PureMaths unit-3",text_font = Setup.text_font_size, height = 20,width = 20, command = self.fp3_func)
         self.fp3.grid(row = 8, column = 3,padx = 20, pady = 4, sticky = 'w')
         if os.path.exists("question_datafiles/IAL/Fp3.pickle"):
             self.fp3.select()
@@ -319,6 +328,74 @@ class Setup(customtkinter.CTk):
             Setup.download_keys.append("Chemistry2")
         else:
             Setup.download_keys.remove('Chemistry2')
+
+
+    def bio1_func(self):
+        if self.bio1.get():
+            Setup.download_keys.append("Biology1")
+        else:
+            Setup.download_keys.remove('Biology1')
+
+
+    def bio2_func(self):
+        if self.bio2.get():
+            Setup.download_keys.append("Biology2")
+        else:
+            Setup.download_keys.remove('Biology2')
+
+
+    def p1_func(self):
+        if self.p1.get():
+            Setup.download_keys.append("P1")
+        else:
+            Setup.download_keys.remove("P1")
+
+
+    def p2_func(self):
+        if self.p2.get():
+            Setup.download_keys.append("P2")
+        else:
+            Setup.download_keys.remove("P2")
+
+
+
+    def p3_func(self):
+        if self.p3.get():
+            Setup.download_keys.append("P3")
+        else:
+            Setup.download_keys.remove("P3")
+
+
+
+
+    def p4_func(self):
+        if self.p4.get():
+            Setup.download_keys.append("P4")
+        else:
+            Setup.download_keys.remove("P4")
+
+
+    def fp1_func(self):
+        if self.fp1.get():
+            Setup.download_keys.append("FP1")
+        else:
+            Setup.download_keys.remove("FP1")
+
+
+    def fp2_func(self):
+        if self.fp2.get():
+            Setup.download_keys.append("FP2")
+        else:
+            Setup.download_keys.remove("FP2")
+
+
+
+    def fp3_func(self):
+        if self.fp3.get():
+            Setup.download_keys.append("FP3")
+        else:
+            Setup.download_keys.remove("FP3")
+
 
 if __name__ == "__main__":
     S = Setup()
